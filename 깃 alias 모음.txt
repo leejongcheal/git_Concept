@@ -5,11 +5,11 @@ git config --global alias.ch checkout
 git config --global alias.st status
 git config --global alias.br branch
 git config --global alias.co commit
-git config --global alias.com commit -m
-git config --global alias.coam commit -am
+git config --global alias.com 'commit -m'
+git config --global alias.coam 'commit -am'
 git config --global alias.lg 'log --oneline --decorate --graph --all'   // 간단한 log 그래프 
 or
 git config --global alias.lg "log --graph --abbrev-commit --decorate --format=format:'%C(cyan)%h%C(reset) - %C(green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(yellow)%d%C(reset)' --all"      // 작성자 시간 포함된 log 그래프
-git config --global alias.unstage reset HEAD  // add된 파일 내리기
-git config --global alias.tocurrent  reset HEAD^ // 최신커밋으로 돌아가기
-git config --global alias.tohash reset --hard  // 특정 커밋으로 되돌린다음 그이후 버전 삭제
+git config --global alias.unstage 'reset HEAD'  // add된 파일 내리기
+git config --global alias.tocurrent 'reset HEAD^' // 최신커밋으로 돌아가기
+git config --global alias.tohash 'reset --hard'  // 특정 커밋으로 되돌린다음 그이후 버전 삭제
