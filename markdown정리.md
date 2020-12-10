@@ -6,6 +6,9 @@
 [**Markdown**](http://whatismarkdown.com/)은 텍스트 기반의 마크업언어로 2004년 존그루버에 의해 만들어졌으며 쉽게 쓰고 읽을 수 있으며 HTML로 변환이 가능하다. 특수기호와 문자를 이용한 매우 간단한 구조의 문법을 사용하여 웹에서도 보다 빠르게 컨텐츠를 작성하고 보다 직관적으로 인식할 수 있다.
 마크다운이 최근 각광받기 시작한 이유는 깃헙([https://github.com](https://github.com)) 덕분이다. 깃헙의 저장소Repository에 관한 정보를 기록하는 README.md는 깃헙을 사용하는 사람이라면 누구나 가장 먼저 접하게 되는 마크다운 문서였다. 마크다운을 통해서 설치방법, 소스코드 설명, 이슈 등을 간단하게 기록하고 가독성을 높일 수 있다는 강점이 부각되면서 점점 여러 곳으로 퍼져가게 된다.
 
+
+확장자명은 md이다.
+
 ## 1.2. 마크다운의 장-단점
 ### 1.2.1. 장점
 	1. 간결하다.
@@ -67,6 +70,13 @@
 >	>	> This is a third blockqute.
 
 이 안에서는 다른 마크다운 요소를 포함할 수 있다.
+```
+> ### This is a H3
+> * List
+>	```
+>	code
+>	```
+```
 > ### This is a H3
 > * List
 >	```
@@ -95,7 +105,7 @@
 3. 세번째
 2. 두번째
 
-딱히 개선될 것 같지는 않다. 존 그루버가 신경안쓰고 있다고...
+~~딱히 개선될 것 같지는 않다. 존 그루버가 신경안쓰고 있다고...~~
 
 ### ● 순서없는 목록(글머리 기호: `*`, `+`, `-` 지원)
 ```
@@ -123,20 +133,17 @@
   - 녹색
     - 파랑
 
-혼합해서 사용하는 것도 가능하다(내가 선호하는 방식)
-
+들여쓰기는 tab으로 해준다. 또한 순서없는 목록에서 +나 - 또는 * 을 구별하지 않고 섞어 써도 상관없다.
 ```
-* 1단계
-  - 2단계
-    + 3단계
-      + 4단계
+* 빨강
+  - 녹색
+    + 파랑
 ```
-
-* 1단계
-  - 2단계
-    + 3단계
-      + 4단계
-
+* 빨강
+	- 녹색
+		+ 파랑
+			
+			
 ## 2.4. 코드
 4개의 공백 또는 하나의 탭으로 들여쓰기를 만나면 변환되기 시작하여 들여쓰지 않은 행을 만날때까지 변환이 계속된다.
 
@@ -177,43 +184,18 @@ This is a normal paragraph:
 end code block.
 *****
 
-### 2.4.1. 코드블럭
-코드블럭은 다음과 같이 2가지 방식을 사용할 수 있습니다:
+### 2.4.2. 코드(code) 강조
+1. 코드 강조는 2가지 방식이 있다.
+	* `<pre><code>{code}</code></pre>` 이용방식
+	* 코드블럭코드("\```") 을 이용하는 방법
 
-* `<pre><code>{code}</code></pre>` 이용방식
-
-```
 <pre>
 <code>
+```
 public class BootSpringBootApplication {
-  public static void main(String[] args) {
-    System.out.println("Hello, Honeymon");
-  }
-
+public static void main(String[] args) {
+System.out.println("Hello, Honeymon");
 }
-</code>
-</pre>
-```
-
-<pre>
-<code>
-public class BootSpringBootApplication {
-  public static void main(String[] args) {
-    System.out.println("Hello, Honeymon");
-  }
-}
-</code>
-</pre>
-
-* 코드블럭코드("\```") 을 이용하는 방법
-
-<pre>
-<code>
-```
-public class BootSpringBootApplication {
-  public static void main(String[] args) {
-    System.out.println("Hello, Honeymon");
-  }
 }
 ```
 </code>
@@ -221,12 +203,68 @@ public class BootSpringBootApplication {
 
 ```
 public class BootSpringBootApplication {
-  public static void main(String[] args) {
-    System.out.println("Hello, Honeymon");
-  }
+	public static void main(String[] args) {
+		System.out.println("Hello, Honeymon");
+	}
 }
 ```
+2. 인라인(inline) 코드 강조
+```
+`background`혹은 `background-image` 속성으로 요소에 배경 이미지를 삽입할 수 있습니다.
+```
 
+`background`혹은 `background-image` 속성으로 요소에 배경 이미지를 삽입할 수 있습니다.
+
+
+3. 블록(block) 코드 강조
+	* \```만 쓰는 경우는 txt처럼 사용가능
+	* \```와 언어이름과 함께 사용해서 해당 언어의 코드 를 보여준다
+<pre><code>
+```html 
+```
+</code></pre>
+
+
+```html
+<a href="https://www.google.co.kr/" target="_blank">GOOGLE</a>
+```
+
+
+<pre><code>
+```css 
+```
+</code></pre>
+```css
+.list > li {
+  position: absolute;
+  top: 40px;
+}
+```
+<pre><code>
+```javascript 
+```
+</code></pre>
+```javascript
+function func() {
+  var a = 'AAA';
+  return a;
+}
+```
+<pre><code>
+```bash 
+```
+</code></pre>
+```bash
+$ vim ./~zshrc
+```
+<pre><code>
+```python 
+```
+</code></pre>
+```python
+s = "Python syntax highlighting"
+print s
+```
 
 ## 2.5. 수평선 ```<hr/>```
 아래 줄은 모두 수평선을 만든다. 마크다운 문서를 미리보기로 출력할 때 *페이지 나누기* 용도로 많이 사용한다.
@@ -256,6 +294,12 @@ public class BootSpringBootApplication {
 
 
 ## 2.6. 링크
+* 링크
+```
+사용문법: <URL>
+적용예: <www.google.com>
+```
+Link: <www.google.com>
 * 참조링크
 
 ```
@@ -263,7 +307,7 @@ public class BootSpringBootApplication {
 
 [id]: URL "Optional Title here"
 
-// code
+// 적용예:
 Link: [Google][googlelink]
 
 [googlelink]: https://google.com "Go google"
@@ -275,7 +319,7 @@ Link: [Google][googlelink]
 
 * 외부링크
 ```
-사용문법: [Title](link)
+사용문법: [Title](link, [additional description])
 적용예: [Google](https://google.com, "google link")
 ```
 Link: [Google](https://google.com, "google link")
@@ -293,17 +337,29 @@ Link: [Google](https://google.com, "google link")
 
 ## 2.7. 강조
 ```
-*single asterisks*
-_single underscores_
-**double asterisks**
-__double underscores__
-~~cancelline~~
+기울임체: 기울임체로 나타낼 텍스트의 앞뒤를 * 또는 _로 감싼다.
+* *single asterisks* 
+* _single underscores_
+
+
+굵게: 굵게 나타낼 텍스트의 앞뒤를 ** 또는 __ 로 감싼다.
+* **double asterisks**
+* __double underscores__
+
+굵은 기울임체: 굵은 기울임체로 나타낼 텍스트의 앞뒤를 *** 또는 ___로 감싼다 \.
+* ***triple asterisks***
+* ___triple underscores___
+
+취소선: 취소선을 나타낼 텍스트의 앞뒤를 ~~로 감싼다.
+* ~~cancelline~~
 ```
 
 * *single asterisks*
 * _single underscores_
 * **double asterisks**
 * __double underscores__
+* ***triple asterisks***
+* ___triple underscores___
 * ~~cancelline~~
 
 > ```문장 중간에 사용할 경우에는 **띄어쓰기** 를 사용하는 것이 좋다.```   
@@ -330,21 +386,32 @@ __double underscores__
 <img src="http://cfile6.uf.tistory.com/image/2426E646543C9B4532C7B0" width="40%" height="30%" title="%(비율) 크기 설정" alt="RubberDuck"></img>
 
 ## 2.9. 줄바꿈
-3칸 이상 띄어쓰기(` `)를 하면 줄이 바뀐다.
+1. 텍스트 단락 줄바꾸기
+텍스트 단락에서 줄을 바꿀 때는 Enter을 두번 써야한다.
+```
+깃허브
+
+원격저장소
+```
+
+깃허브
+
+원격저장소
+
+2. 3칸 이상 띄어쓰기(` `)를 하면 줄이 바뀐다.
 
 ```
 * 줄 바꿈을 하기 위해서는 문장 마지막에서 3칸이상을 띄어쓰기해야 한다. 
 이렇게
 
-* 줄 바꿈을 하기 위해서는 문장 마지막에서 3칸이상을 띄어쓰기해야 한다.___\\ 띄어쓰기
+* 줄 바꿈을 하기 위해서는 문장 마지막에서 3칸이상을 띄어쓰기해야 한다.___\\ _ 는 띄어쓰기
 이렇게
 ```
 
 * 줄 바꿈을 하기 위해서는 문장 마지막에서 3칸이상을 띄어쓰기해야 한다. 이렇게
 
-* 줄 바꿈을 하기 위해서는 문장 마지막에서 3칸이상을 띄어쓰기해야 한다.    \
+* 줄 바꿈을 하기 위해서는 문장 마지막에서 3칸이상을 띄어쓰기해야 한다.    
 이렇게
-
 
 ****
 # 3. 마크다운 사용기
